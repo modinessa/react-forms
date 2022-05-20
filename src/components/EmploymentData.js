@@ -10,19 +10,17 @@ export function EmploymentData (props) {
 	}
 
 	return (
-		<>
-		<label htmlFor='employed'>
-			Employed
-		</label>
-		<input
-			type='checkbox'
-			id='employed'
-			name='employed'
-			checked={employed}
-			value={employed}
-			onChange={handleChange}
-		/>
-		<br/>
-		</>
+		<div className='data-row'>
+			<label htmlFor='employed' className='title-column'>
+				Employed
+			</label>
+			<input className='data-column'
+							type='checkbox'
+							id='employed'
+							name='employed'
+							checked={employed}
+							value={employed}
+							onChange={handleChange}/>
+	</div>
 	)
 }

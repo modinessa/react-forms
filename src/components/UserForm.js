@@ -39,8 +39,10 @@ export const initialValues = {
 		<Sauces state={state} setState={setState}/>
 		<BestStooge state={state} setState={setState}/>
 		<Notes state={state} setState={setState}/>
-		<SubmitButton state={state}/>
-		<ResetButton state={state} setState={setState}/>
+		<div className='form-actions'>
+			<SubmitButton state={state}/>
+			<ResetButton state={state} setState={setState}/>
+		</div>
 		<ViewState state={stateMessage}/>
 		</>
 	)

@@ -1,4 +1,5 @@
 import React from 'react';
+import { initialValues } from './UserForm';
 
 export function SubmitButton(props) {
 
@@ -7,11 +8,11 @@ export function SubmitButton(props) {
 	}
 
 	return (
-		<button
-			id='submitBtn'
-			type='submit'
-			onClick={handleSubmit}
-		>
+		<button id='submitBtn'
+		 				className='submit-button action-button'
+						type='submit'
+						disabled={props.state == initialValues}
+						onClick={handleSubmit}>
 			Submit
 		</button>
 	)

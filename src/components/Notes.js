@@ -16,15 +16,16 @@ export function Notes(props) {
 	}
 
 	return (
-	<>
-		<label htmlFor='notes'>Notes</label>
-		<textarea
-			id='notes'
-			name='notes'
-			placeholder='Notes'
-			value={notes}
-			onChange={handleChange}
-		/>
-	</>
+		<div className='data-row'>
+			<label htmlFor='notes' className='title-column'>
+				Notes
+			</label>
+			<textarea className='data-column'
+								id='notes'
+								name='notes'
+								placeholder='Notes'
+								value={notes}
+								onChange={handleChange}/>
+		</div>
 	)
 }

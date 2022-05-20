@@ -10,10 +10,10 @@ export function ResetButton(props) {
 	}
 
 	return (
-		<button
-			id='resetBtn'
-			onClick={handleReset}
-		>
+		<button id='resetBtn'
+						className='action-button'
+						disabled={props.state == initialValues}
+						onClick={handleReset}>
 			Reset
 		</button>
 	)

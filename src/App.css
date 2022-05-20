@@ -1,8 +1,46 @@
 .App {
-	max-width: 500px;
+	border: solid 1px;
+	box-shadow: 4px 4px 0 0;
+	margin: 24px auto;
+	padding: 24px;
+	width: 500px;
+}
+
+.data-row {
+	display: flex;
+	margin: 4px 0;
+}
+
+.title-column {
+	width: 200px;
+}
+
+.data-column {
+	width: 100%;
+}
+
+input.data-column {
+	height: 20px;
+}
+
+.data-column-choice {
 	display: flex;
 	flex-direction: column;
+}
 
+.form-actions {
+	display: flex;
+	justify-content: center;
+	margin: 12px 0;
+}
+
+.submit-button {
+	margin-right: 16px;
+}
+
+.action-button {
+	cursor: pointer;
+	padding: 4px 16px;
 }
 
 

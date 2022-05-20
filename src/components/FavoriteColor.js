@@ -11,18 +11,16 @@ export function FavoriteColor(props) {
 	}
 
 	return (
-		<>
-			<label htmlFor='favoriteColor'>
+		<div className='data-row'>
+			<label htmlFor='favoriteColor' className='title-column'>
 				Favorite Color
 			</label>
-			<select
-				id='favoriteColor'
-				name='favoriteColor'
-				value={favoriteColor}
-				onChange={handleChange}>
-
-				<option value='none'>
-				</option>
+			<select className='data-column'
+							id='favoriteColor'
+							name='favoriteColor'
+							value={favoriteColor}
+							onChange={handleChange}>
+				<option value='none'></option>
 				<option value='red'>
 					Red
 				</option>
@@ -42,7 +40,7 @@ export function FavoriteColor(props) {
 					White
 				</option>
 			</select>
-		</>
+		</div>
 	)
 
 }

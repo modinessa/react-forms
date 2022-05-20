@@ -12,44 +12,44 @@ export function UserData(props) {
 
 	return (
 		<>
-			<label htmlFor='firstName'>
-				First Name
-			</label>
-			<input
-				type='text'
-				id='firstName'
-				name='firstName'
-				placeholder='First Name'
-				value={firstName}
-				onChange={handleChange}
-			/>
-			<br/>
+			<div className='data-row'>
+				<label htmlFor='firstName' className='title-column'>
+					First Name
+				</label>
+				<input className='data-column'
+							 type='text'
+							 id='firstName'
+							 name='firstName'
+							 placeholder='First Name'
+							 value={firstName}
+							 onChange={handleChange}/>
+			</div>
 
-			<label htmlFor='lastName'>
-				Last Name
-			</label>
-			<input
-				type='text'
-				id='lastName'
-				name='lastName'
-				placeholder='Last Name'
-				value={lastName}
-				onChange={handleChange}
-			/>
-			<br/>
+			<div className='data-row'>
+				<label htmlFor='lastName' className='title-column'>
+					Last Name
+				</label>
+				<input className='data-column'
+					 		 type='text'
+					  	 id='lastName'
+							 name='lastName'
+							 placeholder='Last Name'
+							 value={lastName}
+							 onChange={handleChange}/>
+			</div>
 
-			<label htmlFor='age'>
-				Age
-			</label>
-			<input
-				type='text'
-				id='age'
-				name='age'
-				placeholder='Age'
-				value={age}
-				onChange={handleChange}
-			/>
-			<br/>
+			<div className='data-row'>
+				<label htmlFor='age' className='title-column'>
+					Age
+				</label>
+				<input className='data-column'
+							 type='text'
+							 id='age'
+							 name='age'
+							 placeholder='Age'
+							 value={age}
+							 onChange={handleChange}/>
+			</div>
 		</>
 	)
 }
