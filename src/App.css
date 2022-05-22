@@ -7,6 +7,10 @@
 	box-shadow: rgba(0, 0, 0, 0.3) 2px 4px 8px;
 }
 
+.App *:focus {
+	outline: none;
+}
+
 input,
 textarea,
 select,
@@ -54,28 +58,33 @@ input.data-column {
 	margin: 12px 0;
 }
 
-.form-actions>* {
+.action-button {
+	cursor: pointer;
+	padding: 4px 16px;
 	height: 28px;
 	border-radius: 6px;
 }
 
 .submit-button {
-	background: rgb(70, 90, 152);
 	background: linear-gradient(0deg, rgba(70, 90, 152, 1) 7%,
 			rgba(82, 123, 177, 1) 44%);
 	color: white;
 	margin-right: 16px;
 }
 
+.submit-button:active {
+	background: linear-gradient(0deg, rgb(47, 61, 102) 7%,
+			rgb(63, 95, 136) 44%);
+}
+
 .reset-button {
-	background: rgb(193, 193, 193);
 	background: linear-gradient(0deg, rgba(193, 193, 193, 1) 0%,
 			rgba(242, 242, 242, 1) 41%);
 }
 
-.action-button {
-	cursor: pointer;
-	padding: 4px 16px;
+.reset-button:active {
+	background: linear-gradient(0deg, rgb(148, 148, 148) 0%,
+			rgb(211, 211, 211) 41%);
 }
 
 .no-scroll {

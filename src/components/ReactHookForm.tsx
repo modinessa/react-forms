@@ -1,11 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { string } from "yup";
 import { objToString } from "../js/objToString.js"
 import TextareaAutosize from "react-textarea-autosize";
-import { BestStooge } from "./BestStooge.js";
-//import { string } from "yup";
-
 
 type FormValues = {
 	firstName: string,
