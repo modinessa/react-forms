@@ -1,18 +1,68 @@
 import React from 'react';
 
-export function ViewState(props) {
+const KEYS_TO_IGNORE = [];
 
-	//<script>
-	//		{const canvas = document.getElementById("my-canvas");
-	//		const context = canvas.getContext("2d");
-	//		context.fillText(props)}
-	//	</script>
+export function ViewState(props) {
+	function objToString(obj, level = 0) {
+		let objValue = '';
+		const space = ' '.repeat((level + 1) * 2);
+		const closeSpace = ' '.repeat(level * 2);
+
+		if (Object.keys(obj).length === 0) {
+			return objValue;
+		}
+
+		objValue += '{';
+		for (const [key, value] of Object.entries(obj)) {
+			if (value === '' || KEYS_TO_IGNORE.includes(key)) {
+				continue;
+			}
+			let formattedValue = `"${value}"`;
+			
+			if (typeof value === "object") {
+				formattedValue = objToString(value, level + 1);
+			}
+			if (Array.isArray(value)) {
+				if (value.length === 0) {
+					continue;
+				}
+				formattedValue = arrayToString(value, level + 1);
+			}
+			
+			objValue += `\n${space}"${key}": ${formattedValue},`; 
+		}
+		objValue = objValue.slice(0, -1);
+		return `${objValue}\n${closeSpace}}`;
+	}
+
+	function arrayToString(arr, level = 0) {
+		let arrString = '[';
+		const closeSpace = ' '.repeat(level * 2)
+		const space = ' '.repeat((level + 1) * 2);
+		
+		for (const value of arr) {
+			let formattedValue = `"${value}"`;
+
+			if (typeof value === Object) {
+				formattedValue = objToString(value);
+			}
+			if (Array.isArray(value)) {
+				if (value.length === 0) {
+					continue;
+				}
+				formattedValue = arrayToString(value);
+			}
+
+			arrString += `\n${space}${formattedValue},`;
+		}
+		return `${arrString}\n${closeSpace}]`;
+	}
 
 	return (
-		<canvas id='viewState'
-						width='500'
-						height='100'
-						style={{backgroundColor: 'lightgray' }}>
-		</canvas>
+		<textarea id='viewState'
+							className='scroll'
+							value={objToString(props.state)}
+							readOnly>
+		</textarea>
 	)
 }

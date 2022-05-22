@@ -19,45 +19,43 @@ export function Sauces(props) {
 	}
 	
 	return (
-		<>
-			<div className='data-row'>
-				<div className='title-column'>Sauces</div>
-				<div role='group'
-						 aria-labelledby='checkbox-group'
-						 className='data-column data-column-choice'>
-					<div>
-						<input type='checkbox'
-									name='ketchup'
-									value='ketchup'
-									onChange={handleChange}/>
-						<label htmlFor='ketchup'>Ketchup</label>
-					</div>
-					
-					<div>
-						<input type='checkbox'
-									name='checked'
-									value='mustard'
-									onChange={handleChange}/>
-						<label htmlFor='mustard'>Mustard</label>
-					</div>
-					
-					<div>
-						<input type='checkbox'
-										name='checked'
-										value='mayonnaise'
-										onChange={handleChange}/>
-						<label htmlFor='mayonnaise'>Mayonnaise</label>
-					</div>
+		<div className='data-row'>
+			<div className='title-column'>Sauces</div>
+			<div role='group'
+						aria-labelledby='checkbox-group'
+						className='data-column data-column-choice'>
+				<div>
+					<input type='checkbox'
+								name='ketchup'
+								value='ketchup'
+								onChange={handleChange}/>
+					<label htmlFor='ketchup'>Ketchup</label>
+				</div>
 				
-					<div>
-						<input type='checkbox'
+				<div>
+					<input type='checkbox'
+								name='checked'
+								value='mustard'
+								onChange={handleChange}/>
+					<label htmlFor='mustard'>Mustard</label>
+				</div>
+				
+				<div>
+					<input type='checkbox'
 									name='checked'
-									value='guacamole'
+									value='mayonnaise'
 									onChange={handleChange}/>
-						<label htmlFor='guacamole'>Guacamole</label>
-					</div>
+					<label htmlFor='mayonnaise'>Mayonnaise</label>
+				</div>
+			
+				<div>
+					<input type='checkbox'
+								name='checked'
+								value='guacamole'
+								onChange={handleChange}/>
+					<label htmlFor='guacamole'>Guacamole</label>
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }

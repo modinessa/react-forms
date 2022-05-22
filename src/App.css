@@ -43,5 +43,18 @@ input.data-column {
 	padding: 4px 16px;
 }
 
+#viewState {
+	background-color: lightgray;
+	min-height: 100px;
+	padding: 20px 15px;
+	width: 470px;
+	overflow: auto;
+
+}
+
+.scroll::-webkit-scrollbar {
+	display: none;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {}

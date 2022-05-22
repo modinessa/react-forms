@@ -1,17 +1,17 @@
 import React from 'react';
-import { initialValues } from './UserForm';
+import { isInitialState } from './UserForm';
 
-export function SubmitButton(props) {
+export function SubmitButton({state}) {
 
 	function handleSubmit() {
-		console.log(props.state);
+		console.log(state);
 	}
 
 	return (
 		<button id='submitBtn'
 		 				className='submit-button action-button'
 						type='submit'
-						disabled={props.state == initialValues}
+						disabled={isInitialState(state)}
 						onClick={handleSubmit}>
 			Submit
 		</button>

@@ -6,7 +6,8 @@ export function EmploymentData (props) {
 	const { employed } = state;
 
 	function handleChange(event) {
-		return setState({...state, [event.target.name]: !event.target.value});
+		console.log(event.target);
+		return setState({...state, [event.target.name]: event.target.checked});
 	}
 
 	return (
@@ -18,7 +19,6 @@ export function EmploymentData (props) {
 							type='checkbox'
 							id='employed'
 							name='employed'
-							checked={employed}
 							value={employed}
 							onChange={handleChange}/>
 	</div>

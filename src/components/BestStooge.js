@@ -6,12 +6,8 @@ export function BestStooge(props) {
 
 	function handleChange(event) {
 
-		const stateMessageValue = state.stateMessage || {};
-		stateMessageValue.bestStooge = event.target.value;
-
 		return setState({...state,
-			bestStooge: event.target.value,
-			stateMessage: stateMessageValue});
+			bestStooge: event.target.value});
 	}
 
 	return (
@@ -21,8 +17,7 @@ export function BestStooge(props) {
 			</div>
 			<div className='data-column data-column-choice'
 					 role='group'
-					 aria-label='my-radio-group'
-					 defaultChecked={state.bestStooge}>
+					 aria-label='my-radio-group'>
 				<label>
 					<input type='radio'
 								 name='picked'

@@ -1,18 +1,16 @@
 import React from 'react';
-import { initialValues } from './UserForm';
+import { isInitialState, getInitialValues } from './UserForm';
 
-export function ResetButton(props) {
-
-	const { setState } = props;
+export function ResetButton({setState, state}) {
 
 	function handleReset() {
-		return setState(initialValues);
+		return setState({...getInitialValues()});
 	}
 
 	return (
 		<button id='resetBtn'
 						className='action-button'
-						disabled={props.state == initialValues}
+						disabled={isInitialState(state)}
 						onClick={handleReset}>
 			Reset
 		</button>
