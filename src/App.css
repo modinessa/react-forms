@@ -28,6 +28,10 @@ input.data-column {
 	flex-direction: column;
 }
 
+.error {
+	border-color: red;
+}
+
 .form-actions {
 	display: flex;
 	justify-content: center;
@@ -43,7 +47,7 @@ input.data-column {
 	padding: 4px 16px;
 }
 
-#viewState {
+.no-scroll {
 	background-color: lightgray;
 	min-height: 100px;
 	padding: 20px 15px;
@@ -52,9 +56,8 @@ input.data-column {
 
 }
 
-.scroll::-webkit-scrollbar {
+.no-scroll::-webkit-scrollbar {
 	display: none;
 }
-
 
 @media (prefers-reduced-motion: no-preference) {}
