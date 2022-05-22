@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { string } from "yup";
 import { objToString } from "../js/objToString.js"
+import TextareaAutosize from "react-textarea-autosize";
 import { BestStooge } from "./BestStooge.js";
 //import { string } from "yup";
 
@@ -110,7 +111,6 @@ export function ReactHookForm() {
 					<div>
 						<input type="checkbox"
 							{...register("sauces")}
-							//name="sauces"
 							value="ketchup" />
 						<label htmlFor="ketchup">Ketchup</label>
 					</div>
@@ -118,7 +118,6 @@ export function ReactHookForm() {
 					<div>
 						<input type="checkbox"
 							{...register("sauces")}
-							//name="sauces"
 							value="mustard" />
 						<label htmlFor="mustard">Mustard</label>
 					</div>
@@ -126,7 +125,6 @@ export function ReactHookForm() {
 					<div>
 						<input type="checkbox"
 							{...register("sauces")}
-							//name="sauces"
 							value="mayonnaise" />
 						<label htmlFor="mayonnaise">Mayonnaise</label>
 					</div>
@@ -134,7 +132,6 @@ export function ReactHookForm() {
 					<div>
 						<input type="checkbox"
 							{...register("sauces")}
-							//name="sauces"
 							value="guacamole" />
 						<label htmlFor="guacamole">Guacamole</label>
 					</div>
@@ -186,12 +183,13 @@ export function ReactHookForm() {
 				<input type="reset" className="reset-button action-button" />
 			</div>
 
-			<textarea
+			<TextareaAutosize
 				{...register("viewState",{ max: 100 })}
 				className="no-scroll"
 				value={objToString(watchAllFields)}
 				readOnly>
-			</textarea>
+			</TextareaAutosize>
+
 		</form >
 	)
 }

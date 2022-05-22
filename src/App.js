@@ -5,7 +5,7 @@ import {ReactHookForm} from './components/ReactHookForm.tsx';
 function App() {
   return (
 		<div className='App'>
-			<UserForm />
+			{/*<UserForm />*/}
 			<ReactHookForm/>
 		</div>
 	)

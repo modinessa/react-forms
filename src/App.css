@@ -1,18 +1,27 @@
 .App {
-	border: solid 1px;
-	box-shadow: 4px 4px 0 0;
-	margin: 24px auto;
+	border: solid 1px lightgray;
+	border-radius: 3px;
+	margin: 20px auto;
 	padding: 24px;
-	width: 500px;
+	width: 440px;
+	box-shadow: rgba(0, 0, 0, 0.3) 2px 4px 8px;
+}
+
+input,
+textarea,
+select,
+.radio-item label:before {
+	border: 1px solid lightgray;
+	border-radius: 3px;
 }
 
 .data-row {
 	display: flex;
-	margin: 4px 0;
+	margin: 8px 0;
 }
 
 .title-column {
-	width: 200px;
+	width: 150px;
 }
 
 .data-column {
@@ -24,12 +33,19 @@ input.data-column {
 }
 
 .data-column-choice {
+	margin-bottom: 10px;
 	display: flex;
 	flex-direction: column;
 }
 
+.data-column-choice>* {
+	margin-top: 6px;
+}
+
 .error {
 	border-color: red;
+	border-width: 1px;
+	box-shadow: none;
 }
 
 .form-actions {
@@ -38,8 +54,23 @@ input.data-column {
 	margin: 12px 0;
 }
 
+.form-actions>* {
+	height: 28px;
+	border-radius: 6px;
+}
+
 .submit-button {
+	background: rgb(70, 90, 152);
+	background: linear-gradient(0deg, rgba(70, 90, 152, 1) 7%,
+			rgba(82, 123, 177, 1) 44%);
+	color: white;
 	margin-right: 16px;
+}
+
+.reset-button {
+	background: rgb(193, 193, 193);
+	background: linear-gradient(0deg, rgba(193, 193, 193, 1) 0%,
+			rgba(242, 242, 242, 1) 41%);
 }
 
 .action-button {
@@ -48,12 +79,13 @@ input.data-column {
 }
 
 .no-scroll {
-	background-color: lightgray;
+	background-color: rgba(223, 223, 223, 0.87);
+	border-radius: 0%;
 	min-height: 100px;
 	padding: 20px 15px;
-	width: 470px;
-	overflow: auto;
-
+	width: 410px;
+	resize: none;
+	box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 4px 0px inset;
 }
 
 .no-scroll::-webkit-scrollbar {
