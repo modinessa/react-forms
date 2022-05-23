@@ -101,4 +101,8 @@ input.data-column {
 	display: none;
 }
 
+input:disabled {
+	opacity: 0.7;
+}
+
 @media (prefers-reduced-motion: no-preference) {}

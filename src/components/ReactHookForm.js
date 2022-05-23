@@ -2,7 +2,6 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { objToString } from "../js/objToString.js";
 import { createKeys } from "../js/createKeys.js";
-import { deepEqual } from "../js/deepEquality.js";
 import TextareaAutosize from "react-textarea-autosize";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
@@ -25,8 +24,12 @@ export function ReactHookForm() {
 		register,
 		handleSubmit,
 		reset,
+		getValues,
 		watch,
-		formState: { errors }
+		formState: {
+			errors,
+			isDirty,
+			isSubmitted }
 	} = useForm({
 		resolver: yupResolver(schema),
 		defaultValues: {
@@ -36,7 +39,6 @@ export function ReactHookForm() {
 		}
 	});
 	
-	let currentData = {};
 	const favoriteColor = createKeys(["", "red", "green", "blue", "black"]);
 	const sauces = createKeys(["ketchup", "mustard", "mayonnaise", "guacamole"]);
 	const bestStooge = createKeys(["larry", "moe", "curly"]);
@@ -56,8 +58,8 @@ export function ReactHookForm() {
 
 	const watchAllFields = watch();
 	const onSubmit = (data) => {
-		currentData = {...data};
 		alert(objToString(data));
+		//reset(getValues());
 	};
 
 	return (
@@ -90,10 +92,11 @@ export function ReactHookForm() {
 
 
 			<div className="form-actions">
-				<input type="submit" className="submit-button action-button"/>
+				<input type="submit" className="submit-button action-button"
+					disabled={!isDirty || isSubmitted}/>
 
 				<input type="reset" className="reset-button action-button"
-							onClick={resetHadler}/>
+							onClick={resetHadler} disabled={!isDirty}/>
 			</div>
 
 			<TextareaAutosize
