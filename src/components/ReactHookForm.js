@@ -12,10 +12,9 @@ import { CheckBox } from "./CheckBox.js";
 import { CheckGroup } from "./CheckGroup.js";
 import { RadioButtons } from "./RadoiButtons.js";
 import { TextArea } from "./TextArea.js";
-//import { SubmitButton } from "./SubmitButton.js";
 
 const schema = yup.object({
-  //firstName: yup.string().matches(/^[A-Za-z\s]+$/i),
+  firstName: yup.string().matches(/^[A-Za-z\s]+$/i),
   lastName: yup.string().matches(/^[A-Za-z\s]+$/i),
   age: yup.number().positive().integer(),
 	notes: yup.string().max(100)
@@ -38,7 +37,6 @@ export function ReactHookForm() {
 	});
 	
 	let currentData = {};
-	let isSubmited = false;
 	const favoriteColor = createKeys(["", "red", "green", "blue", "black"]);
 	const sauces = createKeys(["ketchup", "mustard", "mayonnaise", "guacamole"]);
 	const bestStooge = createKeys(["larry", "moe", "curly"]);
@@ -46,21 +44,17 @@ export function ReactHookForm() {
 	const watchAllFields = watch();
 	const onSubmit = (data) => {
 		currentData = {...data};
-		console.log(data);
-		console.log(currentData);
-		isSubmited = deepEqual(currentData, data);
-		console.log(isSubmited);
 		alert(objToString(data));
 	};
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
 
-			{/*<Input name="firstName"
+			<Input name="firstName"
 						title="First Name"
 						register={register}
-						errors={errors}/>*/}
-			{/*<Input name="lastName"
+						errors={errors}/>
+			<Input name="lastName"
 						title="Last Name" 
 						register={register}
 						errors={errors} />
@@ -68,16 +62,6 @@ export function ReactHookForm() {
 						title="Age" 
 						register={register}
 						errors={errors} />
-
-
-			{/*<div className="data-row">
-				<label htmlFor="firstName" className="title-column">
-					First Name
-				</label>
-				<input className={`data-column ${errors.firstName ? "error" : ""}`}
-					{...register("firstName")}
-					placeholder="First Name" />
-			</div>*/}
 
 			<CheckBox name="employed" title="Employed" register={register}/>
 
@@ -93,8 +77,7 @@ export function ReactHookForm() {
 
 
 			<div className="form-actions">
-				<input type="submit" className="submit-button action-button"
-								disabled={isSubmited}/>
+				<input type="submit" className="submit-button action-button"/>
 
 				<input type="reset" className="reset-button action-button"
 							onClick={() => reset(

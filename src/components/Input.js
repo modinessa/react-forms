@@ -8,11 +8,8 @@ export function Input({ register, name, title, errors, ...rest }) {
 					{title}
 				</label>
 				<input
-
-//TODO  implement errors handling
-					className={`data-column ${errors.name ? "error" : ""}`}
+					className={`data-column ${errors[name] ? "error" : ""}`}
 					{...register(name)} {...rest}
 					placeholder={title}/>
 			</div>
-	)
-}
+	)}

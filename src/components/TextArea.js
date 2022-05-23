@@ -7,9 +7,7 @@ export function TextArea({ register, name, title, errors, ...rest }) {
 	<label htmlFor={name} className="title-column">
 		{title}
 	</label>
-
-{/*TODO  implement errors handling*/}
-	<textarea className={`data-column ${errors.notes ? "error" : ""}`}
+	<textarea className={`data-column ${errors[name] ? "error" : ""}`}
 		{...register(name)} {...rest}
 					placeholder={title}/>
 </div>
