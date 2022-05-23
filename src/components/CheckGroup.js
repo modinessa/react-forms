@@ -10,10 +10,9 @@ export function CheckGroup({ register, options, name, title, ...rest }) {
 				className="data-column data-column-choice">
 				
 					{options.map((value) => (
-						<div>
+						<div key={value.key}>
 							<input type="checkbox"
 										{...register(name)} {...rest}
-										key={value.key}
 										value={value.val} />
 							<label htmlFor={name}>
 								{firstLetterToUpperCase(value.val)}

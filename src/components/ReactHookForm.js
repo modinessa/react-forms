@@ -10,6 +10,7 @@ import { Select } from "./Select.js";
 import { CheckBox } from "./CheckBox.js";
 import { CheckGroup } from "./CheckGroup.js";
 import { RadioButtons } from "./RadoiButtons.js";
+import { TextArea } from "./TextArea.js";
 
 const schema = yup.object({
   firstName: yup.string().matches(/^[A-Za-z\s]+$/i),
@@ -75,14 +76,8 @@ export function ReactHookForm() {
 			<RadioButtons name="bestStooge" title="BestStooge" register={register}
 										options={bestStooge}/>
 
-			<div className="data-row">
-				<label htmlFor="notes" className="title-column">
-					Notes
-				</label>
-				<textarea className={`data-column ${errors.notes ? "error" : ""}`}
-					{...register("notes")}
-					placeholder="Notes" />
-			</div>
+			<TextArea name="notes" title="Notes" register={register} errors={errors}/>
+
 
 			<div className="form-actions">
 				<input type="submit" className="submit-button action-button" />

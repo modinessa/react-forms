@@ -12,10 +12,9 @@ export function RadioButtons({ register, options, name, title, ...rest }) {
 				aria-label="my-radio-group">
 				
 					{options.map((value) => (
-						<label>
+						<label key={value.key}>
 							<input type="radio"
 											{...register(name)} {...rest}
-											key={value.key}
 											value={value.val} />
 								{firstLetterToUpperCase(value.val)}
 						</label>
