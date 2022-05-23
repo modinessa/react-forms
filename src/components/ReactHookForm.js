@@ -30,9 +30,9 @@ export function ReactHookForm() {
 	} = useForm({
 		resolver: yupResolver(schema),
 		defaultValues: {
-			employed: false,
-			bestStooge: "larry",
-			sauces: [],
+				employed: false,
+				bestStooge: "larry",
+				sauces: [],
 		}
 	});
 	
@@ -40,6 +40,19 @@ export function ReactHookForm() {
 	const favoriteColor = createKeys(["", "red", "green", "blue", "black"]);
 	const sauces = createKeys(["ketchup", "mustard", "mayonnaise", "guacamole"]);
 	const bestStooge = createKeys(["larry", "moe", "curly"]);
+
+	function resetHadler() {
+		reset({ 
+				firstName: '',
+				lastName: '',
+				age: '',
+				employed: false,
+				favoriteColor: '',
+				sauces: [],
+				bestStooge: 'larry',
+				notes: ''
+		})
+	}
 
 	const watchAllFields = watch();
 	const onSubmit = (data) => {
@@ -80,17 +93,7 @@ export function ReactHookForm() {
 				<input type="submit" className="submit-button action-button"/>
 
 				<input type="reset" className="reset-button action-button"
-							onClick={() => reset(
-								{ firstName: '',
-									lastName: '',
-									age: '',
-									employed: false,
-									favoriteColor: '',
-									sauces: [],
-									bestStooge: 'larry',
-									notes: ''
-							}
-							) }/>
+							onClick={resetHadler}/>
 			</div>
 
 			<TextareaAutosize
