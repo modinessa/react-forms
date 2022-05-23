@@ -1,4 +1,5 @@
 import React from "react";
+import { firstLetterToUpperCase } from "../js/firstLetterToUpperCase.js";
 
 export function RadioButtons({ register, options, name, title, ...rest }) {
   return (
@@ -16,7 +17,7 @@ export function RadioButtons({ register, options, name, title, ...rest }) {
 											{...register(name)} {...rest}
 											key={value.key}
 											value={value.val} />
-								{value.val.charAt(0).toUpperCase() + value.val.slice(1)}
+								{firstLetterToUpperCase(value.val)}
 						</label>
 					))}
 				

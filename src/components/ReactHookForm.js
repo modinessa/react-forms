@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { objToString } from "../js/objToString.js"
+import { objToString } from "../js/objToString.js";
+import { createKeys } from "../js/createKeys.js";
 import TextareaAutosize from "react-textarea-autosize";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
@@ -33,6 +34,9 @@ export function ReactHookForm() {
 	});
 
 	const watchAllFields = watch();
+	const favoriteColor = createKeys(["", "red", "green", "blue", "black"]);
+	const sauces = createKeys(["ketchup", "mustard", "mayonnaise", "guacamole"]);
+	const bestStooge = createKeys(["larry", "moe", "curly"]);
 
 	return (
 		<form onSubmit={handleSubmit((data) => {
@@ -59,146 +63,17 @@ export function ReactHookForm() {
 				<input className={`data-column ${errors.firstName ? "error" : ""}`}
 					{...register("firstName")}
 					placeholder="First Name" />
-			</div>
-
-			<div className="data-row">
-				<label htmlFor="lastName" className="title-column">
-					Last Name
-				</label>
-				<input className={`data-column ${errors.lastName ? "error" : ""}`}
-					{...register("lastName")}
-					placeholder="Last Name" />
-			</div>
-
-			<div className="data-row">
-				<label htmlFor="age" className="title-column">
-					Age
-				</label>
-				<input className={`data-column ${errors.age ? "error" : ""}`}
-					type="text"
-					{...register("age")}
-					placeholder="Age" />
 			</div>*/}
 
 			<CheckBox name="employed" title="Employed" register={register}/>
 
-			{/*<div className="data-row">
-				<label htmlFor="employed" className="title-column">
-					Employed
-				</label>
-				<input className="data-column"
-					type="checkbox"
-					{...register("employed")} />
-			</div>*/}
-
-			<Select name="favoriteColor" title="Favorite Color" register={register} 								options={[{key: "", val: ""}, {key: "red", val: "red"},
-								{key:"green", val: "green"}, {key: "blue", val: "blue"},
-								{key: "black", val: "black"}, {key: "purple", val: "purple"}]} />
-
-			{/*<div className="data-row">
-				<label htmlFor="favoriteColor" className="title-column">
-					Favorite Color
-				</label>
-				<select className="data-column"
-					{...register("favoriteColor")}>
-					<option value="none"></option>
-					<option value="red">
-						Red
-					</option>
-					<option value="green">
-						Green
-					</option>
-					<option value="blue">
-						Blue
-					</option>
-					<option value="purple">
-						Purple
-					</option>
-					<option value="black">
-						Black
-					</option>
-					<option value="white">
-						White
-					</option>
-				</select>
-			</div>*/}
+			<Select name="favoriteColor" title="Favorite Color" register={register} 								options={favoriteColor}/>
 
 			<CheckGroup name="sauces" title="Sauces" register={register} 
-									options={[{key: "ketchup", val: "ketchup"},
-										{key: "mustard", val: "mustard"},
-										{key: "mayonnaise", val: "mayonnaise"},
-										{key: "guacamole", val: "guacamole"}]}/>
-
-			{/*<div className="data-row">
-				<div className="title-column">Sauces</div>
-				<div role="group"
-					aria-labelledby="checkbox-group"
-					className="data-column data-column-choice">
-					<div>
-						<input type="checkbox"
-							{...register("sauces")}
-							value="ketchup" />
-						<label htmlFor="ketchup">Ketchup</label>
-					</div>
-
-					<div>
-						<input type="checkbox"
-							{...register("sauces")}
-							value="mustard" />
-						<label htmlFor="mustard">Mustard</label>
-					</div>
-
-					<div>
-						<input type="checkbox"
-							{...register("sauces")}
-							value="mayonnaise" />
-						<label htmlFor="mayonnaise">Mayonnaise</label>
-					</div>
-
-					<div>
-						<input type="checkbox"
-							{...register("sauces")}
-							value="guacamole" />
-						<label htmlFor="guacamole">Guacamole</label>
-					</div>
-				</div>
-			</div>*/}
+									options={sauces}/>
 
 			<RadioButtons name="bestStooge" title="BestStooge" register={register}
-										options={[{key: "larry", val: "larry"},
-										{key: "moe", val: "moe"},
-										{key: "curly", val: "curly"}]}/>
-
-			{/*<div className="data-row">
-				<div id="my-radio-group" className="title-column">
-					Best Stooge
-				</div>
-				<div className="data-column data-column-choice"
-					role="group"
-					aria-label="my-radio-group">
-					<label>
-						<input type="radio"
-							{...register("bestStooge")}
-							name="bestStooge"
-							value="larry" />
-						Larry
-					</label>
-					<label>
-						<input type="radio"
-							{...register("bestStooge")}
-							name="bestStooge"
-							value="moe" />
-						Moe
-					</label>
-					<label>
-						<input type="radio"
-							{...register("bestStooge")}
-							name="bestStooge"
-							value="curly" />
-						Curly
-					</label>
-				</div>
-			</div>*/}
+										options={bestStooge}/>
 
 			<div className="data-row">
 				<label htmlFor="notes" className="title-column">

@@ -1,4 +1,5 @@
 import React from "react";
+import { firstLetterToUpperCase } from "../js/firstLetterToUpperCase.js";
 
 export function Select({ register, options, name, title, ...rest }) {
   return (
@@ -9,7 +10,7 @@ export function Select({ register, options, name, title, ...rest }) {
 			<select className="data-column" {...register(name)} {...rest}>
 				{options.map((value) => (
 					<option key={value.key} value={value.val}>
-						{value.val.charAt(0).toUpperCase() + value.val.slice(1)}	
+						{firstLetterToUpperCase(value.val)}	
 					</option>
 				))}
 			</select>

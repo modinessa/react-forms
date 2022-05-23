@@ -1,4 +1,5 @@
 import React from "react";
+import { firstLetterToUpperCase } from "../js/firstLetterToUpperCase.js";
 
 export function CheckGroup({ register, options, name, title, ...rest }) {
   return (
@@ -15,7 +16,7 @@ export function CheckGroup({ register, options, name, title, ...rest }) {
 										key={value.key}
 										value={value.val} />
 							<label htmlFor={name}>
-								{value.val.charAt(0).toUpperCase() + value.val.slice(1)}
+								{firstLetterToUpperCase(value.val)}
 							</label>
 						</div>
 					))}
