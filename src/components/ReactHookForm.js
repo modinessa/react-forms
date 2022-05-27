@@ -93,7 +93,7 @@ export function ReactHookForm() {
 
 			<div className="form-actions">
 				<input type="submit" className="submit-button action-button"
-					disabled={!isDirty || isSubmitted}/>
+					disabled={!isDirty /*|| isSubmitted*/}/>
 
 				<input type="reset" className="reset-button action-button"
 						onClick={resetHadler} disabled={!isDirty}/>
