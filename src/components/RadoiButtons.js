@@ -2,7 +2,7 @@ import React from "react";
 import { firstLetterToUpperCase } from "../js/firstLetterToUpperCase.js";
 
 export function RadioButtons({ register, options, name, title, ...rest }) {
-  return (
+	return (
 		<div className="data-row">
 			<div id="my-radio-group" className="title-column">
 				{title}
@@ -14,9 +14,9 @@ export function RadioButtons({ register, options, name, title, ...rest }) {
 					{options.map((value) => (
 						<label key={value.key}>
 							<input type="radio"
-											{...register(name)} {...rest}
-											value={value.val} />
-								{firstLetterToUpperCase(value.val)}
+									{...register(name)} {...rest}
+									value={value.val} />
+							{firstLetterToUpperCase(value.val)}
 						</label>
 					))}
 				

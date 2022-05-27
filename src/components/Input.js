@@ -2,7 +2,7 @@ import React from "react";
 
 export function Input({ register, name, title, errors, ...rest }) {
 
-  return (
+	return (
 		<div className="data-row">
 				<label htmlFor={name} className="title-column">
 					{title}
@@ -11,5 +11,6 @@ export function Input({ register, name, title, errors, ...rest }) {
 					className={`data-column ${errors[name] ? "error" : ""}`}
 					{...register(name)} {...rest}
 					placeholder={title}/>
-			</div>
-	)}
+		</div>
+	)
+}

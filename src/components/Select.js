@@ -2,7 +2,7 @@ import React from "react";
 import { firstLetterToUpperCase } from "../js/firstLetterToUpperCase.js";
 
 export function Select({ register, options, name, title, ...rest }) {
-  return (
+	return (
 		<div className="data-row">
 			<label htmlFor={name} className="title-column">
 				{title}
@@ -15,5 +15,5 @@ export function Select({ register, options, name, title, ...rest }) {
 				))}
 			</select>
 		</div>
-  );
+	);
 }

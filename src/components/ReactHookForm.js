@@ -13,9 +13,9 @@ import { RadioButtons } from "./RadoiButtons.js";
 import { TextArea } from "./TextArea.js";
 
 const schema = yup.object({
-  firstName: yup.string().matches(/^[A-Za-z\s]+$/i),
-  lastName: yup.string().matches(/^[A-Za-z\s]+$/i),
-  age: yup.number().positive().integer(),
+	firstName: yup.string().matches(/^[A-Za-z\s]+$/i),
+	lastName: yup.string().matches(/^[A-Za-z\s]+$/i),
+	age: yup.number().positive().integer(),
 	notes: yup.string().max(100)
 });
 
@@ -24,18 +24,18 @@ export function ReactHookForm() {
 		register,
 		handleSubmit,
 		reset,
-		getValues,
 		watch,
 		formState: {
 			errors,
 			isDirty,
-			isSubmitted }
+			isSubmitted
+		}
 	} = useForm({
 		resolver: yupResolver(schema),
 		defaultValues: {
-				employed: false,
-				bestStooge: "larry",
-				sauces: [],
+			employed: false,
+			bestStooge: "larry",
+			sauces: [],
 		}
 	});
 	
@@ -45,21 +45,20 @@ export function ReactHookForm() {
 
 	function resetHadler() {
 		reset({ 
-				firstName: '',
-				lastName: '',
-				age: '',
-				employed: false,
-				favoriteColor: '',
-				sauces: [],
-				bestStooge: 'larry',
-				notes: ''
+			firstName: '',
+			lastName: '',
+			age: '',
+			employed: false,
+			favoriteColor: '',
+			sauces: [],
+			bestStooge: 'larry',
+			notes: ''
 		})
 	}
 
 	const watchAllFields = watch();
 	const onSubmit = (data) => {
 		alert(objToString(data));
-		//reset(getValues());
 	};
 
 	return (
@@ -80,13 +79,14 @@ export function ReactHookForm() {
 
 			<CheckBox name="employed" title="Employed" register={register}/>
 
-			<Select name="favoriteColor" title="Favorite Color" register={register} 								options={favoriteColor}/>
+			<Select name="favoriteColor" title="Favorite Color" register={register}
+					options={favoriteColor}/>
 
 			<CheckGroup name="sauces" title="Sauces" register={register} 
-									options={sauces}/>
+						options={sauces}/>
 
 			<RadioButtons name="bestStooge" title="BestStooge" register={register}
-										options={bestStooge}/>
+						options={bestStooge}/>
 
 			<TextArea name="notes" title="Notes" register={register} errors={errors}/>
 
@@ -96,7 +96,7 @@ export function ReactHookForm() {
 					disabled={!isDirty || isSubmitted}/>
 
 				<input type="reset" className="reset-button action-button"
-							onClick={resetHadler} disabled={!isDirty}/>
+						onClick={resetHadler} disabled={!isDirty}/>
 			</div>
 
 			<TextareaAutosize

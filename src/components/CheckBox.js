@@ -1,7 +1,7 @@
 import React from "react";
 
 export function CheckBox({ register, name, title, ...rest }) {
-  return (
+	return (
 		<div className="data-row">
 			<label htmlFor={name} className="title-column">
 				{title}
@@ -10,5 +10,5 @@ export function CheckBox({ register, name, title, ...rest }) {
 				type="checkbox"
 				{...register(name)} {...rest} />
 		</div>
-		)
-	}
+	)
+}
