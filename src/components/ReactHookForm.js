@@ -27,8 +27,7 @@ export function ReactHookForm() {
 		watch,
 		formState: {
 			errors,
-			isDirty,
-			isSubmitted
+			isDirty
 		}
 	} = useForm({
 		resolver: yupResolver(schema),
@@ -93,7 +92,7 @@ export function ReactHookForm() {
 
 			<div className="form-actions">
 				<input type="submit" className="submit-button action-button"
-					disabled={!isDirty /*|| isSubmitted*/}/>
+					disabled={!isDirty}/>
 
 				<input type="reset" className="reset-button action-button"
 						onClick={resetHadler} disabled={!isDirty}/>
